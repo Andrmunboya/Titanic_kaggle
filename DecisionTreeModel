@@ -1,41 +1,36 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
-# 1. Читаем файл train.csv, который ты загрузил вручную
-import pandas as pd
+# 1. Загружаем данные
 data = pd.read_csv('train.csv')
 
-# 2. Выбираем нужные колонки и очищаем данные
-data = data[['Pclass', 'Sex', 'Age', 'Survived']].dropna()
+# Признаки
+features = ['Pclass', 'Sex', 'Age', 'Fare', 'SibSp', 'Parch']
+data = data[features + ['Survived']]
 
-# Превращаем пол в числа: male -> 1, female -> 0
+# Превращаем пол в числа
 data['Sex'] = data['Sex'].map({'male': 1, 'female': 0})
 
-X = data[['Pclass', 'Sex', 'Age']]
+X = data[features]
 y = data['Survived']
 
+# 2. Делим данные
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.20, random_state=42)
 
-# 3. Создаем модель дерева решений.
-# Используем критерий энтропии и ограничиваем глубину до 3 уровней, чтобы дерево было читаемым
-model = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=42)
+# 3. Обучаем модель
+model_rich = DecisionTreeClassifier(criterion='entropy', max_depth=4, random_state=42)
+model_rich.fit(X_train, y_train)
 
-# 4. ЗАПУСКАЕМ ОБУЧЕНИЕ! Модель прямо сейчас считает энтропию тысячи раз
-model.fit(X, y)
+# 4. Проверяем точность
+y_pred = model_rich.predict(X_val)
+new_accuracy = accuracy_score(y_val, y_pred)
 
-# 5. ВИЗУАЛИЗАЦИЯ: Просим модель показать дерево, которое она построила САМА
-plt.figure(figsize=(15, 10))
-plot_tree(model, feature_names=X.columns, class_names=['Погиб', 'Выжил'], filled=True, rounded=True)
+print(f"--- НОВАЯ ТОЧНОСТЬ МОДЕЛИ: {new_accuracy * 100:.2f}% ---")
+
+# 5. Рисуем дерево
+plt.figure(figsize=(20, 12))
+plot_tree(model_rich, feature_names=X.columns, class_names=['Погиб', 'Выжил'], filled=True, rounded=True, fontsize=10)
 plt.show()
-
-# 6. ТЕСТИРУЕМ: Пассажир: 3 класс, мужчина (1), 22 года
-new_passenger = [[3, 1, 22]]
-prediction = model.predict(new_passenger)
-probability = model.predict_proba(new_passenger)
-
-print("\n--- РЕЗУЛЬТАТ РАБОТЫ ВАШЕЙ МОДЕЛИ ---")
-if prediction[0] == 1:
-    print(f"Модель предсказывает: Пассажир ВЫЖИЛ! (Уверенность: {probability[0][1]*100:.1f}%)")
-else:
-    print(f"Модель предсказывает: Пассажир ПОГИБ. (Уверенность: {probability[0][0]*100:.1f}%)")
-

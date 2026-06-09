@@ -28,7 +28,7 @@ model_rich.fit(X_train, y_train)
 y_pred = model_rich.predict(X_val)
 new_accuracy = accuracy_score(y_val, y_pred)
 
-print(f"--- НОВАЯ ТОЧНОСТЬ МОДЕЛИ: {new_accuracy * 100:.2f}% ---")
+print(f"--- ТОЧНОСТЬ МОДЕЛИ: {new_accuracy * 100:.2f}% ---")
 
 # 5. Рисуем дерево
 plt.figure(figsize=(20, 12))

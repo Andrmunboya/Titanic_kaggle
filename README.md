@@ -36,8 +36,10 @@
 ## 7. Сценарий выполнения работы
 
 ## 8. Распечатка протокола
-<img width="1104" height="660" alt="image" src="https://github.com/user-attachments/assets/8200e317-a79d-4cd0-bfe0-59e2a12b2690" />
+<img width="1114" height="684" alt="image" src="https://github.com/user-attachments/assets/4613df01-9e29-42c1-b9f4-9f08040b5369" />
 
+
+<img width="221" height="25" alt="image" src="https://github.com/user-attachments/assets/46ff87d7-3317-4665-bdfd-c74b6a069192" />
 
 
 ## 9. Замечания автора по существу работы

@@ -24,8 +24,9 @@ titanic-ml-pipeline/
 │
 ├── notebooks/             # Colab Notebooks с экспериментами
 │   ├── 01_eda_and_cleaning.ipynb    # Разведочный анализ данных и генерация фичей
-│   ├── 02_random_forest.ipynb       # Обучение и тюнинг модели Random Forest
-│   └── 03_catboost.ipynb            # Эксперименты с градиентным бустингом CatBoost
+│   ├── 02_decision__tree            # Пробная модель Decision Tree
+|   ├── 03_random_forest.ipynb       # Обучение и тюнинг модели Random Forest
+│   ├── 04_catboost.ipynb            # Эксперименты с градиентным бустингом CatBoost
 │
 ├── api/                   # Скрипты для развертывания модели
 │   ├── app.py                       # Код веб-сервера (Flask / FastAPI)
@@ -78,8 +79,9 @@ python app.py
 
 | Модель | Score на валидации | Метрика на Kaggle |
 | :--- | :---: | :---: |
-| **Random Forest** | 0.XX | 0.XX |
-| **CatBoost** | 0.XX | **0.XX (Лучший результат)** |
+| **Decision Tree** | 0.79 | 0.77 |
+| **Random Forest** | 0.82 | 0.77 |
+| **CatBoost** | 0.82 | **0.77 (Лучший результат)** |
 
 
 ---

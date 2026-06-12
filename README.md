@@ -29,7 +29,7 @@ titanic-ml-pipeline/
 │   ├── 04_catboost.ipynb            # Эксперименты с градиентным бустингом CatBoost
 │
 ├── api/                   # Скрипты для развертывания модели
-│   ├── app.py                       # Код веб-сервера (Flask / FastAPI)
+│   ├── app.py                       # Код веб-сервера FastAPI
 │   └── requirements.txt             # Зависимости для работы API
 │
 ├── models/                # Сохраненные веса обученных моделей (.pkl / .cbm)
@@ -52,7 +52,7 @@ titanic-ml-pipeline/
 ### 1. Клонирование репозитория
 ```bash
 git clone https://github.com
-cd название-твоего-репозитория
+cd Titanic_kaggle
 ```
 
 ### 2. Установка зависимостей

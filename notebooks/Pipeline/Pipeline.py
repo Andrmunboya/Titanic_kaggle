@@ -12,7 +12,7 @@ from sklearn.preprocessing import OneHotEncoder
 # 1. ЗАГРУЗКА ДАННЫХ
 # ==========================================
 # Читай напрямую из своей папки data/
-data = pd.read_csv("train.csv")
+data = pd.read_csv("../data/train.csv")
 
 # Выделяем фичи и таргет, как в твоих прошлых скриптах
 features = ["Pclass", "Sex", "Age", "Fare", "SibSp", "Parch"]
@@ -92,6 +92,6 @@ print(f"Точность пайплайна на валидации: {accuracy *
 # Создай у себя папку models/ если её нет
 import os
 
-os.makedirs("models", exist_ok=True)
-joblib.dump(pipeline, "models/titanic_pipeline.pkl")
+os.makedirs("../models", exist_ok=True)
+joblib.dump(pipeline, "../models/titanic_pipeline.pkl")
 print("Пайплайн успешно сохранен в 'models/titanic_pipeline.pkl'!")

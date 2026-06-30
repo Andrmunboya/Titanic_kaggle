@@ -1,0 +1,16 @@
+# Виртуальные окружения
+venv/
+.venv/
+env/
+
+# Кэш Python и Jupyter ноутбуков
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Локальные файлы конфигурации и секреты
+.env
+
+# Системный мусор
+.DS_Store
+Thumbs.db
